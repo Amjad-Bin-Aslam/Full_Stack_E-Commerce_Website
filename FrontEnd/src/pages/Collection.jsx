@@ -6,7 +6,7 @@ import ProductItem from '../components/ProductItem'
 
 function Collection() {
 
-  const { products } = useContext(ShopContext)
+  const { products , search , showSearch } = useContext(ShopContext)
   const [showFilter , setShowFilter] = useState(false)
   const [filterProduct , setFilterProduct] = useState([])
   const [category , setCategory] = useState([])
@@ -33,20 +33,33 @@ function Collection() {
 
 
   const applyFilter = () => {
+  let productsCopy = products.slice();
 
-    let productsCopy = products.slice();
+  // search filter
+  if (showSearch && typeof search === "string" && search.trim() !== "") {
+  productsCopy = productsCopy.filter(item =>
+    item.name.toLowerCase().includes(search.trim().toLowerCase())
+  );
+} 
 
-    if(category.length > 0) {
-      productsCopy = productsCopy.filter(item => category.includes(item.category))
-    }
 
-    if(subCategory.length > 0){
-      productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory))
-    }
-
-    setFilterProduct(productsCopy)
-
+  // category filter
+  if (category.length > 0) {
+    productsCopy = productsCopy.filter(item =>
+      category.includes(item.category)
+    );
   }
+
+  // subcategory filter
+  if (subCategory.length > 0) {
+    productsCopy = productsCopy.filter(item =>
+      subCategory.includes(item.subCategory)
+    );
+  }
+
+  setFilterProduct(productsCopy);
+};
+
 
 
   const sortProduct = () =>{
@@ -72,7 +85,7 @@ function Collection() {
 
   useEffect(() => {
       applyFilter();
-  },[category , subCategory])
+  },[category , subCategory , search , showSearch])
 
   useEffect(() => {
       sortProduct();
