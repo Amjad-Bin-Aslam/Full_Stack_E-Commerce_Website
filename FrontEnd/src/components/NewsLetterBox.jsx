@@ -5,7 +5,7 @@ function NewsLetterBox() {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         
-    }
+    } 
 
   return (
 

@@ -15,8 +15,8 @@ function ProductItem({id , image , name , price}) {
         <p className='pt-3 pb-1 text-sm'>{name}</p>
         <p className='text-sm font-medium'>{currency}{price}</p>
     </Link>
-
-  )
-}
+  
+  )  
+} 
 
 export default ProductItem

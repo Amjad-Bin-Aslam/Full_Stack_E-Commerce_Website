@@ -13,8 +13,8 @@ function Home() {
       <BestSeller />
       <OurPolicy />
       <NewsLetterBox />
-    </div>
-  )
-}
+    </div> 
+  ) 
+} 
 
-export default Home
+export default Home 
