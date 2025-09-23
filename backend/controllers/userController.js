@@ -25,7 +25,7 @@ const registerUser = async (req , res) => {
             return res.json({success: false , message: 'Please enter  a valid email.'})
         }
         if(password.length < 8){
-             return res.json({success: false , message: 'Please enter  a strong password.'}) 
+             return res.json({success: false , message: 'Please enter a strong password.'}) 
         } 
 
 
@@ -44,10 +44,10 @@ const registerUser = async (req , res) => {
 
         const token = jwt.sign({id: user._id} , process.env.JWT_SECRET , {expiresIn: '7d'})
         res.cookie('token' , token)
-        res.json({success: true , token})
+        return res.json({success: true , token})
 
     } catch (error) {
-        // console.log(error)
+        console.log(error)
         res.json({success: false, message: error.message})
     }
 
@@ -84,7 +84,7 @@ const loginUser =  async (req , res) => {
 
 
     } catch (error) {
-        // console.log(error)
+        console.log(error)
         res.json({success: false, message: error.message})
     }
 
@@ -94,8 +94,25 @@ const loginUser =  async (req , res) => {
 
 // Admin login
 const adminLogin = async (req , res) => {
-        
-}
+        try {
+            
+            const { email , password } = req.body;
+
+            if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD){
+            const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' }); 
+            
+            // set cookie 
+            res.cookie("token" , token)
+            return res.json({ success: true, message: "Login successful" , token });
+        } else {
+            return res.json({ success: false, message: "Invalid credentials!" });
+        }
+
+        } catch (error) {
+            console.log(error)
+            res.json({ success: false, message: error.message })
+        }
+} 
 
 
 
