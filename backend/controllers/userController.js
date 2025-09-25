@@ -28,11 +28,9 @@ const registerUser = async (req , res) => {
              return res.json({success: false , message: 'Please enter a strong password.'}) 
         } 
 
-
         // hashing user password
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password , salt)
-
 
         const newUser = new userModel({
             name,
@@ -41,9 +39,7 @@ const registerUser = async (req , res) => {
         })
         const user = await newUser.save();
         
-
         const token = jwt.sign({id: user._id} , process.env.JWT_SECRET , {expiresIn: '7d'})
-        res.cookie('token' , token)
         return res.json({success: true , token})
 
     } catch (error) {
@@ -79,7 +75,6 @@ const loginUser =  async (req , res) => {
 
         const token = jwt.sign({id:user._id} , process.env.JWT_SECRET , {expiresIn: '7d'})
 
-        res.cookie('token' , token)
         res.json({token , message:'User logged in successfully'})
 
 
@@ -101,8 +96,6 @@ const adminLogin = async (req , res) => {
             if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD){
             const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' }); 
             
-            // set cookie 
-            res.cookie("token" , token)
             return res.json({ success: true, message: "Login successful" , token });
         } else {
             return res.json({ success: false, message: "Invalid credentials!" });
