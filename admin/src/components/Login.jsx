@@ -13,7 +13,8 @@ function Login({setToken}) {
         
         try {
             e.preventDefault();
-    
+
+            
             const respone = await axios.post(backendUrl + '/api/user/admin', {
                 email,
                 password
@@ -22,7 +23,7 @@ function Login({setToken}) {
                 setToken(respone.data.token)
             }else{
                 toast.error(respone.data.message)
-            }
+            } 
             
         } catch (error) {
             console.log(error)
