@@ -93,7 +93,7 @@ const updateQuantity = async (itemId , size , quantity) => {
             if(token){
 
                 try {
-                    await axios.post(backendUrl + '/api/cart/update' ,{item , size , quantity} , {headers: {token}})
+                    await axios.post(backendUrl + '/api/cart/update' ,{itemId , size , quantity} , {headers: {token}})
                 } catch (error) {
                     console.log(error)
                     toast.error(error.message)
@@ -125,6 +125,7 @@ const updateQuantity = async (itemId , size , quantity) => {
 
 
     const getUserCart = async (token) => {
+            // const cartData =  structuredClone(cartItems)
         try {
             
             const response = await axios.post(backendUrl + '/api/cart/get' , {} , {headers: {token}} )
@@ -155,7 +156,7 @@ useEffect(()=>{
 
     const value = {
         products , currency , delivery_fee , search , setSearch , showSearch , setShowSearch , cartItems , addToCart ,
-        getCartCount , updateQuantity , getCartAmount , navigate , backendUrl, token , setToken
+        getCartCount , updateQuantity , getCartAmount , navigate , backendUrl, token , setToken , setCartItems
     
     }
 

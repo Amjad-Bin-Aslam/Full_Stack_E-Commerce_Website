@@ -16,8 +16,7 @@ const adminAuth = async (req, res, next) => {
     if (token_decode.email !== process.env.ADMIN_EMAIL) {
       return res.json({ success: false, message: "Not authorized - Invalid admin" });
     }
-
-    // Token valid → proceed
+    
     next();
 
   } catch (error) {
