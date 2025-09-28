@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Title from '../components/Title'
-import CartTotal from '../components/CartTotal'
+// import CartTotal from '../components/CartTotal'
+import CartTotal from '../components/cartTotal'
 import { assets } from '../assets/assets'
 import { ShopContext } from '../context/ShopContext'
 import axios from 'axios'
@@ -21,7 +22,7 @@ function PlaceOrder() {
     zipcode: '',
     country: '',
     phone: ''
-  })
+  });
 
   // const onChangeHandler = (e) => {
   //     const name = e.target.name
@@ -76,6 +77,17 @@ function PlaceOrder() {
           } else {
             toast.error(response.data.message)
           }
+          break;
+
+        case 'stripe':
+            const responseStripe = await axios.post(backendUrl + '/api/order/stripe' , orderData , {headers: {token}} ) 
+            // console.log(responseStripe.data)
+            if(responseStripe.data.success){
+              const { session_url } = responseStripe.data
+              window.location.replace(session_url)
+            } else {
+              toast.error(responseStripe.data.message)
+            } 
           break;
 
         default:

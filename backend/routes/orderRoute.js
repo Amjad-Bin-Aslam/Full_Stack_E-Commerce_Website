@@ -7,7 +7,8 @@ import { placeOrder ,
     placeOrderRazorpay,
     allOrders,
     userOrders,
-    updateStatus } from '../controllers/orderConroller.js'
+    updateStatus, 
+    verifyStripe} from '../controllers/orderConroller.js'
 
 const orderRouter =  express.Router();
 
@@ -22,5 +23,8 @@ orderRouter.post('/razorpay' , authUser , placeOrderRazorpay)
 
 // user feature
 orderRouter.post('/userorders' , authUser , userOrders)
+
+// verify payment
+orderRouter.post('/verifyStripe' , authUser , verifyStripe)
 
 export default orderRouter;
