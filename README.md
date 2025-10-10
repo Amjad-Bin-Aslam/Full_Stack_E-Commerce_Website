@@ -13,8 +13,10 @@
 
 ## 📬 Contact
 
-Developer: Muhammad Amjad
+Developer: Muhammad 
+
 GitHub: https://github.com/Amjad-Bin-Aslam
+
 Email: amjadbinaslam@gmail.com
 
 ---
