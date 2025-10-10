@@ -14,8 +14,8 @@
 ## 📬 Contact
 
 Developer: Muhammad Amjad
-[GitHub](https://github.com/Amjad-Bin-Aslam)
-[Email](amjadbinaslam@gmail.com)
+GitHub: https://github.com/Amjad-Bin-Aslam
+Email: amjadbinaslam@gmail.com
 
 ---
 
