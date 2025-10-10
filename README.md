@@ -13,7 +13,7 @@
 
 ## 📬 Contact
 
-Developer: Muhammad 
+Developer: Muhammad Amjad
 
 GitHub: https://github.com/Amjad-Bin-Aslam
 
