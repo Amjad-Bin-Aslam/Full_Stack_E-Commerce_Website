@@ -15,9 +15,12 @@
 
 Developer: Muhammad Amjad
 
+Email: amjadbinaslam604@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/amjad-bin-aslam-58813530b
+
 GitHub: https://github.com/Amjad-Bin-Aslam
 
-Email: amjadbinaslam@gmail.com
 
 ---
 
