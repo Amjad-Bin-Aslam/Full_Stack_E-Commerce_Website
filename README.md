@@ -11,6 +11,14 @@
 
 ---
 
+## 📬 Contact
+
+Developer: Muhammad Amjad
+[GitHub](https://github.com/Amjad-Bin-Aslam)
+[Email](amjadbinaslam@gmail.com)
+
+---
+
 ## 📖 Project Description
 
 This project is a **Full Stack E-Commerce Web Application** built using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)** and styled with **Tailwind CSS**. It provides a complete online shopping experience with features like product browsing, cart management, order tracking, and secure payments through **Stripe**.
